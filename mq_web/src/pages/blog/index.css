@@ -1,0 +1,19 @@
+.blog-section {
+  padding: 20px;
+}
+
+.card {
+  overflow: hidden;
+}
+
+.card img {
+  border-radius: 10px 10px 0 0;
+}
+
+.card-body {
+  padding: 1rem;
+}
+
+.card-title {
+  margin: 0;
+}

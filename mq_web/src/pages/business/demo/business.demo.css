@@ -1,0 +1,106 @@
+.business-demo-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+  }
+  
+  .business-demo-right {
+    width: 100%;
+    padding: 2rem;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .business-demo-left {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    margin-right: 3rem;
+    height: 100%;
+  }
+  
+  .business-demo-left h1 {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .business-demo-left p {
+    margin-bottom: 1.5rem;
+    color: #666;
+  }
+  
+  .business-demo-right {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .business-demo-right h2 {
+    margin-bottom: 0.5rem;
+  }
+  
+  .business-demo-right p {
+    margin-bottom: 1rem;
+  }
+  
+  .business-social-button {
+    width: 100%;
+    padding: 0.75rem;
+    margin-bottom: 0.5rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .google {
+    background-color: #4285F4;
+    color: white;
+  }
+  
+  .apple {
+    background-color: #333;
+    color: white;
+  }
+  
+  form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  form input {
+    padding: 0.75rem;
+    margin-bottom: 0.5rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+  }
+  
+  .terms {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+  }
+  
+  .terms input {
+    margin-right: 0.5rem;
+  }
+  
+  .business-demo-button {
+    padding: 0.75rem;
+    background-color: #404EED;
+    color: white;
+    border: none;
+    border-radius: 40px;
+    cursor: pointer;
+  }
+  
+  .business-link {
+    margin-top: 1rem;
+  }
+  
+  .business-link a {
+    color: #4CAF50;
+    text-decoration: none;
+  }
+  

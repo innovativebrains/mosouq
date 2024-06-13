@@ -1,0 +1,223 @@
+#home-banner {
+  overflow: hidden; 
+  margin-left: 4rem;
+}
+
+.banner-image{
+    margin-top: 2rem;
+    height: 10px;
+    width: 50px;
+}
+
+.banner-text{
+    font-weight: 400;
+    font-size: 48px;
+    line-height: 120%;
+    margin-top: 5rem;
+    text-align: left;
+}
+
+.banner-descrp{
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 140%;
+    margin-top: 40px;
+    text-align: left;
+}
+
+.search-bar {
+    margin-top: 3rem;
+    display: flex;
+    align-items: center;
+    border: 1px solid #ccc;
+    border-radius: 120px;
+    padding: 8px;
+    margin-bottom: 16px;
+  }
+  
+  .search-bar input {
+    flex-grow: 1;
+    border: none;
+    outline: none;
+    padding: 8px;
+  }
+  
+  .search-button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 100px;
+    margin-left: 8px;
+    cursor: pointer;
+    width: 130px;
+  }
+  
+  .search-button:hover {
+    background-color: #45a049;
+  }
+
+
+  .image-container {
+    display: flex;
+  }
+  
+  .outer-image-wrapper {
+    width: 50%;
+    overflow: hidden;
+  }
+  
+  .outer-image {
+    width: 100%;
+  }
+  
+  .inner-image-wrapper {
+    width: 50%;
+    position: relative;
+  }
+  
+  .inner-image-clip {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 50%;
+    overflow: hidden;
+  }
+  
+  .inner-image {
+    width: 200%;
+    margin-left: -50%;
+  }
+  
+
+  /* ------------------Home Category-------------------------- */
+  .cat-header{
+    position: static;
+    font-size: 50px;
+    font-weight: 400;
+    color: white;
+    background-color: #0B5CFF;
+    margin-left: -10rem;
+    height: 150px;
+    width: 700px;
+    text-align: center;
+    padding-top: 2rem;
+    padding-left: 5rem;
+  }
+
+  .cat-descrp{
+    text-align: left;
+    font-size: 30px;
+    line-height: 120%;
+    font-weight: 600;
+    color: white;
+    margin-left: 2rem;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+  }
+
+  .cat-sec {
+    width: auto;
+    border: 1px solid #243A4F; /* Border with solid style */
+    border-radius: 50px;
+    width: 300px;
+    margin-left: 8rem;
+    height: 50px;
+    padding: 7px 15px;
+    font-weight: 500;
+    font-size: 20px;
+    cursor: pointer;
+    margin-right: 20px;
+    color: white;
+  }
+  
+  .card:hover {
+    transform: translateY(-10px);
+  }
+
+  .review-descrp{
+    font-size: 20px;
+  }
+
+
+  /* -----------------Blog Sec --------------------------- */
+  .blog-sec {
+    width: auto;
+    border: 1px solid #243A4F; /* Border with solid style */
+    border-radius: 50px;
+    width: 300px;
+    margin-left: 2rem;
+    margin-top: 5rem;
+    height: 50px;
+    padding: 7px 15px;
+    font-weight: 500;
+    font-size: 20px;
+    cursor: pointer;
+    margin-right: 20px;
+    color: white;
+  }
+
+
+  /* Explore Dubai */
+
+  .carousel-container {
+    max-width: 100%;
+    overflow-x: hidden;
+    position: relative;
+    padding-bottom: 20px;
+}
+
+.image-row {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: scroll;
+    scrollbar-width: none; 
+    -ms-overflow-style: none; 
+}
+
+.image-row::-webkit-scrollbar {
+    display: none; 
+}
+
+.image-container {
+    position: relative;
+    flex: 0 0 auto;
+    width: 340px;
+    height: 543px;
+    margin: 10px;
+}
+
+.image {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 10px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.text {
+    font-size: 20px;
+}
+
+.view-all-link {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 14px;
+    color: #fff;
+    background-color: #656565;
+    border-radius: 62px;
+    text-decoration: none;
+    text-align: center;
+}
+
+/* HOme trendong card css */
