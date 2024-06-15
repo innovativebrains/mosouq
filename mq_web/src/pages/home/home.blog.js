@@ -9,7 +9,7 @@ const HomeBlog = () => {
                 <Col sm={3} className="mt-3" style={{ backgroundColor: '#2D3363', height: '600px', padding:"5rem" }}>
                     <h2 style={{ marginTop: '5rem' }}>
                         What is Lorem Ipsum?
-                    </h2>
+                    </h2> 
 
                     <div>
                         It is a long established fact that a reader will be distracted by the readable content of a page when
