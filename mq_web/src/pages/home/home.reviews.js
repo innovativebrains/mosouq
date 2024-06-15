@@ -33,18 +33,24 @@ const HomeReview = () => {
                             Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, ”
                         </p>
 
-                        <div>
+                        <Row className="mt-5">
+                            <Col lg={9}>
                             <div className="d-flex">
-                                <img src='/person.png' style={{height:'50px', width:"50px", marginRight:"1rem"}} />
+                                <img src='/review-person.png' style={{height:'50px', width:"50px", marginRight:"1rem"}} />
                                 <h5>
                                     Robert Fox
                                 </h5>
                             </div>
 
-                            <div style={{paddingLeft:"4rem"}}>
+                            <div style={{paddingLeft:"4rem", marginTop:"-2rem"}}>
                                 Designation
                             </div>
-                        </div>
+                            </Col>
+
+                            <Col lg={3}>
+                                <img src="/quote-review.png" />
+                            </Col>
+                        </Row>
 
                     </div>
                 </div>

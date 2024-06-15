@@ -1,3 +1,54 @@
+
+/* Home Category Paginaions */
+/* src/Components/Categories.css */
+
+.categories-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.category-item {
+  flex: 1 1 calc(25% - 10px);
+  padding: 20px;
+  border: 1px solid #ddd;
+  text-align: center;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.pagination button {
+  margin: 0 5px;
+  padding: 10px 15px;
+  border: 1px solid #ddd;
+  background-color: white;
+  cursor: pointer;
+}
+
+.pagination button.active {
+  background-color: #007bff;
+  color: white;
+}
+
+.business-button{
+  width: Hug (119px)px;
+  height: Hug (56px)px;
+  padding: 16px 32px 16px 32px;
+  gap: 12px;
+  border-radius: 4px 0px 0px 0px;
+  opacity: 0px;
+  background: #404EED;
+  color: white;
+  font-size: 16px;
+  font-weight: 600px;  
+}
+
+
+
 #home-banner {
   overflow: hidden; 
   margin-left: 4rem;
@@ -10,8 +61,8 @@
 }
 
 .banner-text{
-    font-weight: 400;
-    font-size: 48px;
+    font-weight: 700;
+    font-size: 72px;
     line-height: 120%;
     margin-top: 5rem;
     text-align: left;
@@ -19,7 +70,7 @@
 
 .banner-descrp{
     font-weight: 400;
-    font-size: 20px;
+    font-size: 24px;
     line-height: 140%;
     margin-top: 40px;
     text-align: left;
@@ -55,11 +106,6 @@
   
   .search-button:hover {
     background-color: #45a049;
-  }
-
-
-  .image-container {
-    display: flex;
   }
   
   .outer-image-wrapper {
@@ -168,15 +214,33 @@
 }
 
 .image-row {
-    display: flex;
-    flex-wrap: nowrap;
-    overflow-x: scroll;
-    scrollbar-width: none; 
-    -ms-overflow-style: none; 
+  display: flex; /* Use flexbox to align items in a row */
+  width: 100%;
 }
 
-.image-row::-webkit-scrollbar {
-    display: none; 
+.image-container {
+  position: relative; /* Ensure relative positioning */
+  flex: 1; /* Allow containers to grow and occupy available space */
+  margin-right: 10px; /* Optional: Adjust spacing between containers */
+}
+
+
+
+.image {
+  width: 100%;
+  height: auto;
+}
+
+.overlay {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  color: white;
+  padding: 10px;
+  border-radius: 0 0 10px 10px; /* Optional: Rounds the bottom corners */
+  text-align: left;
+  width: 100%;
 }
 
 .image-container {
@@ -191,18 +255,6 @@
     display: block;
     width: 100%;
     height: auto;
-}
-
-.overlay {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    color: white;
-    background-color: rgba(0, 0, 0, 0.5);
-    padding: 10px;
-    border-radius: 10px;
-    text-align: center;
 }
 
 .text {

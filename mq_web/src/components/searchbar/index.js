@@ -8,13 +8,14 @@ const SearchBar = () => {
       style={{
         display: "flex",
         alignItems: "center",
-        border: "1px solid #ccc",
-        borderRadius: "42.5px",
+        border: "1px solid #E4E5E8",
+        borderRadius: "8px",
         padding: "5px",
         backgroundColor: "#EDEDED",
         position: "relative",
         width: "100%",
         marginTop: "2rem",
+        height:"80px"
       }}
     >
       <AiOutlineSearch
@@ -25,7 +26,7 @@ const SearchBar = () => {
           background: "#F9F9F9",
           height: "22px",
           width: "22.02px",
-          color: "#9D173F",
+          color: "#0066FF",
           backgroundColor: "#EDEDED",
         }}
       />
@@ -41,9 +42,7 @@ const SearchBar = () => {
           marginLeft: "30px",
         }}
       />
-      <div className="business-button">
-        <button> Search </button>
-      </div>
+        <button className="business-button"> Search </button>
     </div>
   );
 };

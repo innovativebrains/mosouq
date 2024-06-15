@@ -10,13 +10,11 @@ const HomeBanner = () => {
             <Row>
                 <Col>
                     <div className="banner-text">
-                        Your Trusted Companion in Company Exploration.
+                        Your <span style={{color:"#404EED"}}> Trusted </span> Company Guide.
                     </div>
  
                     <div className="banner-descrp">
-                        Discover, Review, Engage: Your Trusted Companion in Company Exploration. Unlock the power of discovery, 
-                        review with confidence, and engage with ease—your ultimate ally in navigating the world of company 
-                        exploration
+                     Find, assess and connect! Your Trusted Companion in Company Exploration.
                     </div>
 
                     <SearchBar />
