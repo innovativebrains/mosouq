@@ -1,7 +1,12 @@
 .header {
-    background-color: #FBFBFB;
-    border-bottom: 1px solid #ddd;
-  }
+  background-color: #FBFBFB;
+  border-bottom: 1px solid #ddd;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+}
   
   .header-container {
     display: flex;
@@ -10,7 +15,9 @@
     max-width: 100%;
     margin: 0 auto;
     height: 88px;
-    border: 0.5px solid #EAEAEA
+    border-bottom: 0.5px solid #EAEAEA;
+    margin-left: 4rem;
+    margin-right: 4rem;
   }
   
   .logo img {
@@ -36,20 +43,21 @@
   }
   
   .nav-links a:hover {
-    color: #007bff;
+    color: #404EED;
   }
   
-  .business-button-header button {
-    background-color: #007bff;
-    color: white;
-    border: none;
-    border-radius: 20px;
-    padding: 10px 20px;
-    font-size: 16px;
-    cursor: pointer;
+  .business-button-header {
+    width: 191px;
+    height: 53px;
+    padding: 17px 50px 17px 50px;
+    border-radius: 33px;
+    background: #404EED;
+
+    font-family: "Figtree", sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    line-height: 19.2px;
+    color: #FFFFFF;
   }
-  
-  .business-button-header button:hover {
-    background-color: #0056b3;
-  }
+
   

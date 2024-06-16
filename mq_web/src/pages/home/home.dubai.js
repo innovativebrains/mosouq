@@ -42,9 +42,9 @@ const ExploreDubai = () => {
                 </Col>
             </Row>
 
-            <Container fluid>
+            <div style={{marginLeft:'3rem', marginRight:"3rem"}}>
                 <div className="image-row">
-                    {[1, 2, 3, 4, 5, 6].map((category, index) => (
+                    {[1, 2, 3, 4].map((category, index) => (
 
                         <div className="image-container">
                             <img src="/explor-dubai.png" alt={`Background`} className="image" />
@@ -58,7 +58,7 @@ const ExploreDubai = () => {
                     ))}
 
                 </div>
-            </Container>
+            </div>
 
 
         </div>

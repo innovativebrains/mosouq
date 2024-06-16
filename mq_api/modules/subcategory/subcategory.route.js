@@ -20,20 +20,18 @@ const upload = multer({
     s3: s3,
     bucket: awsConfig.bucketName,
     key: function (req, file, cb) {
-      cb(null, `category_image/${Date.now().toString()}_${file.originalname}`);
+      cb(null, `subcategory_image/${Date.now().toString()}_${file.originalname}`);
     }
   })
 });
 
 
-const categoryController =   require('./category.controller');
+const subCategoryController =   require('./subcategory.controller');
 
-router.get('/get-categories', categoryController.getCategories);
+router.get('/get-subcategories', subCategoryController.getSubCategories);
 
-// Create a new brand
-router.post('/add-category', upload.single('category_image'), categoryController.createCategory)
-
-router.post('/get-categories', categoryController.getCategories)
+// Create a new 
+router.post('/add-subcategory', subCategoryController.createSubCategory)
 
 
 module.exports = router

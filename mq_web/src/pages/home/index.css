@@ -34,24 +34,12 @@
   color: white;
 }
 
-.business-button{
-  width: Hug (119px)px;
-  height: Hug (56px)px;
-  padding: 16px 32px 16px 32px;
-  gap: 12px;
-  border-radius: 4px 0px 0px 0px;
-  opacity: 0px;
-  background: #404EED;
-  color: white;
-  font-size: 16px;
-  font-weight: 600px;  
-}
-
 
 
 #home-banner {
   overflow: hidden; 
   margin-left: 4rem;
+  margin-right: 4rem;
 }
 
 .banner-image{
@@ -215,7 +203,7 @@
 
 .image-row {
   display: flex; /* Use flexbox to align items in a row */
-  width: 100%;
+  width: 70%;
 }
 
 .image-container {

@@ -8,7 +8,7 @@ const HomeBanner = () => {
     return (
         <div id="home-banner" className="mt-5">
             <Row>
-                <Col>
+                <Col lg={5}>
                     <div className="banner-text">
                         Your <span style={{color:"#404EED"}}> Trusted </span> Company Guide.
                     </div>
@@ -30,9 +30,9 @@ const HomeBanner = () => {
 
                 </Col>
 
-                <Col>
+                <Col lg={7}>
                     <div>
-                        <img src="/banner.jpeg" alt="Outer" style={{ width: '400px', height:'400px', marginTop:'5rem', marginLeft:"9rem" }} />
+                        <img src="/banner.jpeg" alt="Outer" style={{ width: '700px', height:'550px', marginTop:'5rem', marginLeft:"9rem" }} />
                     </div>
                 </Col>
             </Row>

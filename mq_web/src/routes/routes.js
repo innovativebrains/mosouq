@@ -4,7 +4,7 @@ import Contact from "../pages/contact/index"
 
 import Category from "../pages/categories";
 
-import AboutAndContact from "../pages/auth/auth.signup";
+import AboutAndContact from "../pages/about/job.about";
 
 import BlogPage from "../pages/blog";
 

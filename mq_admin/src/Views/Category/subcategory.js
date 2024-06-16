@@ -25,8 +25,7 @@ const SubCategory = () => {
     // Submit Values
     const categoryRef = useRef();
     
-    const titleRef = useRef();
-    const priceRef = useRef();
+    const sub_nameRef = useRef();
 
 
     // Submit Functions
@@ -35,12 +34,11 @@ const SubCategory = () => {
 
         const formData = new FormData();
         formData.append("category", categoryRef.current.value);
-        formData.append("title", titleRef.current.value);
-        formData.append("price", priceRef.current.value);
+        formData.append("sub_name", sub_nameRef.current.value);
 
         if (image) formData.append("subcategory", image);
 
-        if (!titleRef.current.value) {
+        if (!sub_nameRef.current.value) {
             toast.error('Category Name field is required.', {
                 // Use custom class for toast container
                 className: 'custom-toast-container',
@@ -50,13 +48,12 @@ const SubCategory = () => {
             return; // Prevent form submission
         }
 
-        POST("subcategory", formData).then((res) => {
+        POST("subcategory/add-subcategory", formData).then((res) => {
             if (res.error === false) {
                 toast("Added Done")
 
                 categoryRef.current.value = '';
-                titleRef.current.value = '';
-                priceRef.current.value = '';
+                sub_nameRef.current.value = '';
                 fetchData();
             } else {
                 toast.error(res.sqlMessage)
@@ -122,13 +119,13 @@ const SubCategory = () => {
     const [subcategories, setSubCategories] = useState([]);
 
     const fetchData = async () => {
-        GET("category").then((result) => {
+        GET("category/get-categories").then((result) => {
             setCategories(result);
         });
 
-        GET("subcategory").then((result) => {
-            setSubCategories(result);
-        });
+        // GET("subcategory").then((result) => {
+        //     setSubCategories(result);
+        // });
     };
 
 
@@ -175,9 +172,11 @@ const SubCategory = () => {
                                     <Col md={4}>
                                         <Form.Group className="">
                                             <Form.Label> Category </Form.Label>
-                                            <Form.Control className="form-control" as="select">
+                                            <Form.Control className="form-control" as="select" ref={categoryRef}>
                                                 <option value=""> --- Select --- </option>
-                                                
+                                                {categories.map((category) => (
+                                                    <option value={category._id}>{category.name}</option>
+                                                ))}
                                             </Form.Control>
                                         </Form.Group>
                                     </Col>
@@ -185,7 +184,7 @@ const SubCategory = () => {
                                     <Col md={4}>
                                         <Form.Group className="">
                                             <Form.Label> Sub Category </Form.Label>
-                                            <Form.Control ref={titleRef} type="text" placeholder="Product" />
+                                            <Form.Control ref={sub_nameRef} type="text" placeholder="Product" />
                                         </Form.Group>
                                     </Col>
 
@@ -193,6 +192,14 @@ const SubCategory = () => {
                                         <Form.Group className="">
                                             <Form.Label> Image </Form.Label>
                                             <Form.Control type="file" onChange={(e) => setImage(e.target.files[0])} />
+                                        </Form.Group>
+                                    </Col>
+
+                                    <Col md={12}>
+                                        <Form.Group controlId="submit">
+                                            <Button onClick={submit} variant="primary" type="submit" size="lg" block>
+                                                Submit
+                                            </Button>
                                         </Form.Group>
                                     </Col>
 

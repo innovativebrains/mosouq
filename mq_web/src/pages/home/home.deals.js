@@ -43,11 +43,11 @@ const HomeDeals = () => {
         </Col>
       </Row>
 
-      <Container fluid>
+      <div style={{marginLeft:"3rem", marginRight:"3rem"}}>
         <Row>
           {[1, 2, 3, 4].map((category, index) => (
             <Col key={index} md="3" className="mb-4">
-              <Card style={{ width: "100%", marginRight: "2rem" }}>
+              <Card style={{ width: "95%", marginRight: "2rem" }}>
                 <div style={{ position: "relative", textAlign: "right", justifyContent:'center' }}>
                   <img
                     src="/deals.png"
@@ -135,7 +135,7 @@ const HomeDeals = () => {
             </Col>
           ))}
         </Row>
-      </Container>
+      </div>
     </div>
   );
 };

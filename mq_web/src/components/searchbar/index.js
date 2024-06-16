@@ -2,6 +2,8 @@ import React from "react";
 
 import { AiOutlineSearch } from "react-icons/ai";
 
+import "./index.css"
+
 const SearchBar = () => {
   return (
     <div
@@ -11,11 +13,13 @@ const SearchBar = () => {
         border: "1px solid #E4E5E8",
         borderRadius: "8px",
         padding: "5px",
-        backgroundColor: "#EDEDED",
+        backgroundColor: "#FFFFFF",
         position: "relative",
-        width: "100%",
         marginTop: "2rem",
-        height:"80px"
+        width: "546px",
+        height:"80px",
+        padding:"12px",
+        gap: "12px"
       }}
     >
       <AiOutlineSearch
@@ -27,7 +31,7 @@ const SearchBar = () => {
           height: "22px",
           width: "22.02px",
           color: "#0066FF",
-          backgroundColor: "#EDEDED",
+          backgroundColor: "#FFFFFF",
         }}
       />
       <input
@@ -42,7 +46,7 @@ const SearchBar = () => {
           marginLeft: "30px",
         }}
       />
-        <button className="business-button"> Search </button>
+        <button className="search-button"> Search </button>
     </div>
   );
 };

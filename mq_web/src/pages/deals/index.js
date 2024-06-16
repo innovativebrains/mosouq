@@ -11,17 +11,17 @@ const Deals =()=>{
         <div>
             <DealsHeader/>
 
-            <Container fluid style={{marginTop:"2rem"}}>
+            <div style={{marginTop:"2rem", marginLeft:"4rem", marginRight:"4rem"}}>
                 <Row>
                     <Col lg={3}>
                         <DealSearch />
                     </Col>
-
+ 
                     <Col lg={9}>
                         <DealCards />
                     </Col>
                 </Row>
-            </Container>
+            </div>
 
         </div>
     )

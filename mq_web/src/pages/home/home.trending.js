@@ -43,11 +43,11 @@ const HomeTrending = () => {
         </Col>
       </Row>
 
-      <Container fluid>
+      <div style={{marginLeft:"3rem", marginRight:"4rem"}}>
         <Row>
           {[1, 2, 3, 4].map((category, index) => (
             <Col key={index} md="3" className="mb-4">
-              <Card style={{ width: "100%", marginRight: "2rem" }}>
+              <Card style={{ width: "99%", marginRight: "2rem" }}>
                 <img
                   src="banner1.jpg"
                   style={{ objectFit: "contain", padding: "10px" }}
@@ -114,7 +114,7 @@ const HomeTrending = () => {
             </Col>
           ))}
         </Row>
-      </Container>
+      </div>
     </div>
   );
 };

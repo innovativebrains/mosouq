@@ -7,10 +7,10 @@
   font-family: Arial, sans-serif;
 }
 
-.signup-left, .signup-right {
+.signup-right {
   width: 50%;
   padding: 2rem;
-  background-color: white;
+  background-color: #FAFAFA;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
@@ -20,6 +20,12 @@
   justify-content: center;
   align-items: flex-start;
   margin-right: 3rem;
+}
+
+.social-button google{
+  background-color: white;
+  font-weight: 400;
+  font-size: 12px;
 }
 
 .signup-left h1 {
@@ -32,14 +38,17 @@
   color: #666;
 }
 
-/* 
+ 
 .signup-left .illustration {
-} */
+  width: 681px;
+  height: 490px;
+}
 
 .signup-right {
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-top: 1rem;
 }
 
 .signup-right h2 {

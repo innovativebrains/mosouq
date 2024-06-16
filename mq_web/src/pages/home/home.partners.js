@@ -5,7 +5,7 @@ const HomeBusiness = () => {
   return (
     <div
       className="logos-carousel"
-      style={{ marginTop: "2rem", padding: "0 2rem" }}
+      style={{ marginTop: "2rem", padding: "0 2rem", overflow:"hidden" }}
     >
 
       <div style={{ marginTop: "6rem" }}>
@@ -18,7 +18,7 @@ const HomeBusiness = () => {
         </div>
       </div>
 
-      <Marquee className="mt-5" gradient={false} style={{ overflow: 'hidden' }}>
+      <Marquee className="mt-5" gradient={false} style={{ overflow: 'hidden', marginLeft:"4rem", marginRight:"4rem" }}>
         {[1, 2, 3, 4, 5, 6, 7].map((announcementts, index) => (
           <div key={index} className="d-flex justify-content-center align-items-center" style={{ margin: '0 9rem' }}>
 

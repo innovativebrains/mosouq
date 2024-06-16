@@ -4,20 +4,21 @@ import './footer.desktop.css';
 const Footer = () => {
     return (
         <footer className="footer">
-            <div className="footer-content">
+            <div className="footer-content" style={{marginLeft:"2rem"}}>
                 <div className="footer-left">
-                    <h2>MOSOUQ</h2>
-                    <p>
+                    <img src="/footer-logo.png" />
+                    <p className='mt-3'>
                         Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat
                         duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.
                     </p>
-                    <div className="footer-social-icons">
+                    <div className="footer-social-icons mt-4">
                         <a href="#"><i className="fab fa-twitter"></i></a>
                         <a href="#"><i className="fab fa-facebook-f"></i></a>
                         <a href="#"><i className="fab fa-instagram"></i></a>
                     </div>
                 </div>
-                <div className="footer-right">
+
+                <div className="footer-right" style={{marginLeft:"5rem", color:'FFFFFFB2'}}>
                     <div className="footer-column">
                         <h3>About</h3>
                         <ul>
@@ -53,6 +54,7 @@ const Footer = () => {
                     </div>
                 </div>
             </div>
+
             <div className="footer-bottom">
                 <ul>
                     <li><a href="#">Legal</a></li>

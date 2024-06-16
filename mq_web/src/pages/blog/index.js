@@ -20,7 +20,7 @@ const BlogSection = () => {
             </Col>
 
             <Col>
-              <img src="/Image Login page.png" alt="blog" style={{width:"671px", height:"306px", radius:"12px"}} />
+              <img src="/Link → blog-1.jpg" alt="blog" style={{width:"671px", height:"306px", radius:"12px"}} />
             </Col>
           </Row>
 
@@ -29,7 +29,7 @@ const BlogSection = () => {
                     <Col lg={3} md={4} sm={6} className="mb-4" key={categ}>
                         <Link to="/">
                             <Card className="mb-3" style={{ borderRadius: '10px', boxShadow: '0px 0px 10px rgba(0,0,0,0.1)' }}>
-                                <Card.Img variant="top" src="/Image Login page.png" alt="blog" style={{ borderRadius: '10px', width: '100%', height: 'auto' }} />
+                                <Card.Img variant="top" src="/blog-1png" alt="blog" style={{ borderRadius: '10px', width: '100%', height: 'auto' }} />
                                 <Card.Body style={{borderRadius: '0 0 10px 10px' }}>
                                     <Card.Title className="d-flex justify-content-between">
                                         <span>

@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import "./index.css";
 
+import {Row, Col} from "react-bootstrap"
+
 const DealSearch = () => {
   const [emirates, setEmirates] = useState({
     "Abu Dhabi": false,
@@ -52,44 +54,50 @@ const DealSearch = () => {
         <button onClick={resetFilters}>Reset</button>
       </div>
       <div className="filter-section">
-        <h4>Emirates</h4>
+        <div style={{ fontWeight: "600", fontSize: "16px" }}>Emirates</div>
+
         {Object.keys(emirates).map((emirate) => (
-          <label key={emirate}>
-            <input
-              type="checkbox"
-              checked={emirates[emirate]}
-              onChange={() => handleEmiratesChange(emirate)}
-            />
-            {emirate}
-          </label>
+          <div key={emirate} className="emirate-row">
+            <label>
+              <input
+                type="checkbox"
+                checked={emirates[emirate]}
+                onChange={() => handleEmiratesChange(emirate)}
+              />
+              {emirate}
+            </label>
+          </div>
         ))}
+
       </div>
-      <div className="filter-section">
-        <h4>Pricing</h4>
-        <input
-          type="number"
-          name="min"
-          value={pricing.min}
-          onChange={handlePricingChange}
-        />{" "}
-        -{" "}
-        <input
-          type="number"
-          name="max"
-          value={pricing.max}
-          onChange={handlePricingChange}
-        />{" "}
-        AED
-      </div>
-      <div className="filter-section">
-        <h4>Discount</h4>
-        <input
-          type="number"
-          value={discount}
-          onChange={handleDiscountChange}
-        />{" "}
-        % Off
-      </div>
+
+      {/* <div>
+
+        <div style={{ fontWeight: '600', fontSize: '16px', color: '#000000B2' }}>Pricing</div>
+
+        <Row>
+          <Col lg={6} style={{Width:"125px", height:"48px", borderRadius:'4.7px', border: "0.94px solid #F1F1F"}}>
+            <input
+              type="number"
+              name="min"
+              value={pricing.min}
+              onChange={handlePricingChange}
+            />
+            -
+          </Col>
+
+          <Col lg={6}>
+            <input
+              type="number"
+              name="max"
+              value={pricing.max}
+              onChange={handlePricingChange}
+            />
+            AED
+          </Col>
+        </Row>
+      </div> */}
+
       <div className="filter-section">
         <label>
           <input

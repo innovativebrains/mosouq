@@ -55,10 +55,10 @@ const Login = () => {
   };
 
   return (
-    <div className="signup-container">
+    <div className="signup-container mt-5">
       
       <div className="signup-left">
-        <h1>Login for Mosoq</h1>
+        <h1> Sign Up for Mosouq </h1>
         <p>Lorem Ipsum Dolor Sit Amet Consectetur. Mi Ipsum Diam</p>
         <div className="illustration">
           <img src="/Image Login page.png" alt="blog"  />
@@ -68,8 +68,12 @@ const Login = () => {
       <div className="signup-right">
         <h2>Login for Mosoq.</h2>
         <p>Connect with businesses</p>
-        <button className="social-button google">Continue with Google</button>
-        <button className="social-button apple">Continue with Apple</button>
+        <button className="social-button google" style={{fontWeight:'400', fontSize:"12px", backgroundColor:'white', color:"black", border: "1px solid #CECECE"}}>
+          <img src="/Social media logo.png" style={{width:'24px', height:"24px", marginRight:'0.5rem'}} /> Continue with Google
+        </button>
+        <button className="social-button apple" style={{fontWeight:'400', fontSize:"12px", backgroundColor:'white', color:"black", border: "1px solid #CECECE"}}>
+          <img src="/apple.png" style={{width:'24px', height:"24px", marginRight:'0.5rem'}} />  Continue with Apple
+        </button>
         <p>OR</p>
 
         <form>
@@ -81,7 +85,7 @@ const Login = () => {
           <button onClick={submit} type="submit" className="signup-button mt-3">Sign up</button>
         </form>
 
-        <p className="business-link">Are you a <a href="#">business?</a></p>
+        <p className="business-link"> Did you have an Account?  <a href="/sign-up" style={{color:"black"}}> Sign up </a></p>
       </div>
     </div>
   );
