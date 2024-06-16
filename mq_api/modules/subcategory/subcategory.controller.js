@@ -1,15 +1,14 @@
-const SubCategory = require("./subcategory.model");
-const mongoose = require("mongoose");
+const SubCategory = require("./subcategory.route");
 
 async function createSubCategory(req, res) {
-    const { sub_name } = req.body;
+    const { category, sub_name } = req.body;
     const subcategory_image = req.file ? req.file.location : null; 
   
     try {
-      const subCategoryData = { sub_name, subcategory_image };
+      const subCategoryData = {  category, sub_name, subcategory_image };
       const savedCategory = await SubCategory.create(subCategoryData);
       res.status(201).json({
-        message: "Category created successfully",
+        message: "Sub Category created successfully",
         subCategory: savedCategory,
       });
     } catch (error) {
@@ -20,9 +19,9 @@ async function createSubCategory(req, res) {
 
 const getSubCategories = async (req, res) => {
   try {
-      const categories = await Category.find();
-      res.status(200).json(categories);
-      console.log(categories);
+      const subcategories = await SubCategory.find();
+      res.status(200).json(subcategories);
+      console.log(subcategories);
   } catch (error) {
       res.status(404).json({ message: error.message });
   }
@@ -30,5 +29,5 @@ const getSubCategories = async (req, res) => {
 
 module.exports = {
     createSubCategory,
-  getSubCategories,
+    getSubCategories,
 };

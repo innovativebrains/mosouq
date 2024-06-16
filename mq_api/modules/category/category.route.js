@@ -5,6 +5,7 @@ const aws = require('aws-sdk')
 const multerS3 = require('multer-s3');
 
 const awsConfig = require('../../config/aws.config')
+
 aws.config.update({
     secretAccessKey: awsConfig.secretKey,
     accessKeyId: awsConfig.accessKey,
@@ -31,7 +32,15 @@ const categoryController =   require('./category.controller');
 router.get('/get-categories', categoryController.getCategories);
 
 // Create a new brand
-router.post('/add-category', upload.single('category_image'), categoryController.createCategory)
+router.post('/add-category', (req, res, next) => {
+  upload.single('category_image')(req, res, function (err) {
+    if (err) {
+      console.error('Upload error:', err);
+      return res.status(500).json({ error: 'Failed to upload file to S3' });
+    }
+    next();
+  });
+}, categoryController.createCategory);
 
 router.post('/get-categories', categoryController.getCategories)
 

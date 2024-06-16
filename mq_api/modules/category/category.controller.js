@@ -2,20 +2,20 @@ const Category = require("./category.model");
 const mongoose = require("mongoose");
 
 async function createCategory(req, res) {
-    const { name } = req.body;
-    const category_image = req.file ? req.file.location : null; 
-  
-    try {
+  const { name } = req.body;
+  const category_image = req.file ? req.file.location : null; // Check if req.file exists and get its location
+
+  try {
       const categoryData = { name, category_image };
-      const savedCategory = await Category.create(categoryData);
+      const savedCategory = await Category.create(categoryData); // Assuming you're using some ORM or database model
       res.status(201).json({
-        message: "Category created successfully",
-        category: savedCategory,
+          message: "Category created successfully",
+          category: savedCategory,
       });
-    } catch (error) {
+  } catch (error) {
       console.error("Error occurred while creating category:", error);
       res.status(500).json({ error: "An internal server error occurred" });
-    }
+  }
 }
 
 const getCategories = async (req, res) => {

@@ -24,7 +24,7 @@ const SubCategory = () => {
 
     // Submit Values
     const categoryRef = useRef();
-    
+
     const sub_nameRef = useRef();
 
 
@@ -49,11 +49,13 @@ const SubCategory = () => {
         }
 
         POST("subcategory/add-subcategory", formData).then((res) => {
-            if (res.error === false) {
+            if (!res.error) {
                 toast("Added Done")
 
                 categoryRef.current.value = '';
                 sub_nameRef.current.value = '';
+
+                console.log("oiuou",formData);
                 fetchData();
             } else {
                 toast.error(res.sqlMessage)
@@ -123,9 +125,9 @@ const SubCategory = () => {
             setCategories(result);
         });
 
-        // GET("subcategory").then((result) => {
-        //     setSubCategories(result);
-        // });
+        GET("subcategory/get-subcategories").then((result) => {
+            setSubCategories(result);
+        });
     };
 
 
@@ -222,12 +224,14 @@ const SubCategory = () => {
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td>3</td>
-                                        <td>Larry the Bird</td>
-                                        <td>@twitter</td>
-                                        <td>@twitter</td>
-                                    </tr>
+                                    {subcategories.map((subcategory) => (
+
+                                        <tr>
+                                            <td>
+                                                {subcategory.sub_name}
+                                            </td>
+                                        </tr>
+                                    ))}
                                 </tbody>
                             </Table>
                         </div>

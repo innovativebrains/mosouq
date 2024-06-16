@@ -10,16 +10,20 @@ const Header = () => {
 
     const auth = Auth();
 
+    const user = localStorage.getItem("user")
+    ? JSON.parse(localStorage.getItem("user"))
+    : [];
+
     const navigate = useNavigate()
 
-    // const logout = () => {
-    //     auth.activateAuthentication(false);
-    //     auth.activateToken("");
-    //     localStorage.removeItem("token");
-    //     localStorage.removeItem("refreshCycle");
-    //     localStorage.removeItem("user");
-    //     navigate("/");
-    // };
+    const logout = () => {
+        auth.activateAuthentication(false);
+        auth.activateToken("");
+        localStorage.removeItem("token");
+        localStorage.removeItem("refreshCycle");
+        localStorage.removeItem("user");
+        navigate("/");
+    };
 
     return (
 
@@ -39,7 +43,7 @@ const Header = () => {
                         <Link to="/account" style={{ color: 'white', textDecoration: 'none' }}>
 
                             <span className='text-white'>
-                                AQib jawad
+                                {user.name}
                             </span>
                         </Link>
 
@@ -47,7 +51,7 @@ const Header = () => {
 
                     <div>
 
-                        <button className="btn btn-block rounded" style={{ fontWeight:'bold', fontSize:"30px", color: "white", backgroundColor: "#373A47!important", }} >
+                        <button onClick={logout} className="btn btn-block rounded" style={{ fontWeight:'bold', fontSize:"30px", color: "white", backgroundColor: "#373A47!important", }} >
                             Logout
                         </button>
                     </div>

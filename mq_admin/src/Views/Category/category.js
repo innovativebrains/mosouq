@@ -39,17 +39,16 @@ const Category = () => {
     const [categories, setCategories] = useState([]);
 
     const submit = async (event) => {
-
         event.preventDefault();
-
+    
         const formData = new FormData();
         formData.append("name", nameRef.current.value);
-
+    
         if (image) {
-            formData.append("category_image", image);
-            resetFileInput();
+            formData.append("category_image", image); // Ensure 'image' state is correctly set
+            resetFileInput(); // Reset file input after appending image
         }
-
+    
         if (!nameRef.current.value) {
             toast.error('Category Name field is required.', {
                 // Use custom class for toast container
@@ -59,20 +58,28 @@ const Category = () => {
             });
             return; // Prevent form submission
         }
-
-
-        POST("category/add-category", formData).then((res) => {
+    
+        // Use async/await for cleaner code
+        try {
+            const res = await POST("category/add-category", formData);
+    
             if (res.error === false) {
-                toast("Added Done")
-
+                toast("Added Done");
                 nameRef.current.value = '';
-
-                // fetchData();
+    
+                // Fetch updated categories after adding a new category
+                const updatedCategories = await fetchData();
+                setCategories(updatedCategories);
             } else {
-                toast.error(res.sqlMessage)
+                toast.error(res.sqlMessage);
             }
-        });
+        } catch (error) {
+            console.error('Error adding category:', error);
+            toast.error('Failed to add category. Please try again.');
+        }
     };
+    
+    
 
 
 
@@ -109,11 +116,11 @@ const Category = () => {
     //         setImage(null);
     //     });
     // };
-    // const fetchData = async () => {
-    //     GET("get-categories").then((result) => {
-    //         setCategories(result);
-    //     });
-    // };
+    const fetchData = async () => {
+        GET("category/get-categories").then((result) => {
+            setCategories(result);
+        });
+    };
 
 
     // const [delShow, setDelShow] = useState(false);
@@ -135,9 +142,9 @@ const Category = () => {
     //     handleCloseDel();
     // };
 
-    // useEffect(() => {
-    //     fetchData();
-    // }, [])
+    useEffect(() => {
+        fetchData();
+    }, [])
 
 
     return (
@@ -161,13 +168,13 @@ const Category = () => {
                                         <Form.Label htmlFor="basic-url"> Category Name </Form.Label>
                                         <InputGroup className="mb-3" required >
                                             <FormControl type="text" ref={nameRef} />
-                                        </InputGroup> 
+                                        </InputGroup>
                                     </Col>
 
                                     <Col md={12}>
                                         <Form.Label htmlFor="basic-url"> Image </Form.Label>
                                         <InputGroup className="mb-3">
-                                            <FormControl type="file" onChange={(e) => setImage(e.target.files[0])} />
+                                         <FormControl type="file" onChange={(e) => setImage(e.target.files[0])} />
                                         </InputGroup>
                                     </Col>
 
@@ -191,17 +198,19 @@ const Category = () => {
                             <Table striped bordered hover>
                                 <thead>
                                     <tr>
-                                        <th>Sr #</th>
                                         <th>Category</th>
-                                        <th>Image</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td>3</td>
-                                        <td>Larry the Bird</td>
-                                        <td>@twitter</td>
-                                    </tr>
+                                    {categories.map((category) => (
+
+                                        <tr>
+                                            <td>
+                                                {category.name}
+                                            </td>
+                                        </tr>
+                                    ))}
+
                                 </tbody>
                             </Table>
                         </div>
