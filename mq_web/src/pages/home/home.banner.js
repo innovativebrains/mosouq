@@ -8,7 +8,7 @@ const HomeBanner = () => {
     return (
         <div id="home-banner" className="mt-5">
             <Row>
-                <Col lg={5}>
+                <Col lg={5} style={{marginTop:"5rem"}}>
                     <div className="banner-text">
                         Your <span style={{color:"#404EED"}}> Trusted </span> Company Guide.
                     </div>
