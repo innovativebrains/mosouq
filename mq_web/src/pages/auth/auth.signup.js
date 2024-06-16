@@ -256,10 +256,11 @@ const SignUpForm = () => {
   };
 
   return (
-    <div className="signup-container">
-      <div className="signup-left mt-5">
+    <div className="signup-container" style={{marginLeft:'2rem', marginBottom:"7rem"}}>
+
+      <div className="signup-left">
         <h1>Sign Up for Mosoq</h1>
-        <p>Lorem Ipsum Dolor Sit Amet Consectetur. Mi Ipsum Diam</p>
+        <p>Sign up for check best reviews of best companies</p>
         <div className="illustration">
           <img src="/Image Login page.png" alt="blog" />
         </div>
@@ -410,7 +411,7 @@ const SignUpForm = () => {
           </button>
         </form>
 
-        <p className="business-link text-center">Are you a <a href="#" style={{ fontWeight: "500", color: 'black', textDecoration: 'underline' }}>business?</a></p>
+        <p className="business-link text-center">Are you a <a href="/business-signup" style={{ fontWeight: "500", color: 'black', textDecoration: 'underline' }}>business?</a></p>
 
       </div>
     </div>

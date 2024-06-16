@@ -1,24 +1,24 @@
 import React from "react";
 
-import DealsHeader from "./deals.header"
-import DealCards from "./deals.cards";
-import DealSearch from "./deals.search";
+import BusinessHeader from "./business.header"
+import BusinessCards from "./business.cards";
+import BusinessSearch from "./business.search";
 
 import { Row, Col, Container } from "react-bootstrap";
 
-const Deals =()=>{
+const Business =()=>{
     return(
         <div>
-            <DealsHeader/>
+            <BusinessHeader/>
 
             <div style={{marginTop:"5rem", marginLeft:"4rem", marginRight:"4rem", marginBottom:"7rem"}}>
                 <Row>
                     <Col lg={3}>
-                        <DealSearch />
+                        <BusinessSearch />
                     </Col>
  
                     <Col lg={9}>
-                        <DealCards />
+                        <BusinessCards />
                     </Col>
                 </Row>
             </div>
@@ -27,4 +27,4 @@ const Deals =()=>{
     )
 }
 
-export default Deals
+export default Business

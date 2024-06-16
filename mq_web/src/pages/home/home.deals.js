@@ -21,7 +21,7 @@ const HomeDeals = () => {
 
         <Col sm="auto" style={{ marginRight: '4rem' }}>
           <Link
-            to="/"
+            to="/deals"
             style={{
               display: 'flex',
               justifyContent: 'center',
@@ -43,7 +43,7 @@ const HomeDeals = () => {
         </Col>
       </Row>
 
-      <div style={{marginLeft:"3rem", marginRight:"3rem"}}>
+      <div style={{marginLeft:"4rem", marginRight:"3rem", marginTop:"10rem"}}>
         <Row>
           {[1, 2, 3, 4].map((category, index) => (
             <Col key={index} md="3" className="mb-4">

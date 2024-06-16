@@ -2,6 +2,10 @@ import React from "react";
 
 import { Container, Row, Col } from "react-bootstrap"
 
+import HomeReview from "../home/home.reviews";
+
+import HomePartners from "../home/home.partners";
+
 const Jobs = () => {
     return (
         <div id="jobs">
@@ -13,7 +17,7 @@ const Jobs = () => {
                 </p>
 
             </div>
-
+ 
             <Container>
                 <Row className="mt-5">
                     <Col lg={6}>
@@ -63,6 +67,12 @@ const Jobs = () => {
 
                 </Row>
             </Container>
+
+            <HomePartners />
+
+            <div style={{marginBottom:"7rem", marginTop:"6rem"}}>
+             <HomeReview />
+            </div>
         </div>
     )
 }

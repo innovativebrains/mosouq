@@ -7,7 +7,7 @@ import "./index.css"
 
 const ExploreDubai = () => {
     return (
-        <div className="carousel-container">
+        <div className="carousel-container" style={{marginBottom:"7rem"}}>
             <Row className="justify-content-between mt-5" style={{ marginLeft: '3rem' }}>
                 <Col sm="6" className="">
                     <h2>
@@ -42,12 +42,11 @@ const ExploreDubai = () => {
                 </Col>
             </Row>
 
-            <div style={{marginLeft:'3rem', marginRight:"3rem"}}>
+            <div style={{ marginLeft: '3rem', marginRight: '3rem' }}>
                 <div className="image-row">
                     {[1, 2, 3, 4].map((category, index) => (
-
-                        <div className="image-container">
-                            <img src="/explor-dubai.png" alt={`Background`} className="image" />
+                        <div key={index} className="image-container">
+                            <img src={`/explor-dubai.png`} alt={`Background ${index + 1}`} style={{width:"320px"}} />
                             <div className="overlay">
                                 <div style={{ fontWeight: "600", fontSize: "32px" }}> Lorem ipsum </div>
                                 <div style={{ fontWeight: "500", fontSize: "16px" }}>
@@ -56,11 +55,8 @@ const ExploreDubai = () => {
                             </div>
                         </div>
                     ))}
-
                 </div>
             </div>
-
-
         </div>
     );
 };

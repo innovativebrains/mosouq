@@ -65,7 +65,7 @@ const Login = () => {
         </div>
       </div>
 
-      <div className="signup-right">
+      <div className="signup-right" style={{marginTop:"7rem", marginBottom:"7rem"}}>
         <h2>Login for Mosoq.</h2>
         <p>Connect with businesses</p>
         <button className="social-button google" style={{fontWeight:'400', fontSize:"12px", backgroundColor:'white', color:"black", border: "1px solid #CECECE"}}>

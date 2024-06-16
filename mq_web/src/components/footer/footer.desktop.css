@@ -6,7 +6,7 @@
     font-weight: 400;
     font-size: 16px;
 }
-
+ 
 .footer-content {
     display: flex;
     justify-content: space-between;
@@ -16,7 +16,8 @@
 }
 
 .footer-left {
-    max-width: 300px;
+    margin-top: 3.5rem;
+    width: 400px;
 }
 
 .footer-left h2 {
@@ -30,21 +31,22 @@
 
 .footer-social-icons a {
     color: #FFFFFFB2;
-    margin-right: 10px;
+    margin-right: 25px;
     font-size: 18px;
+    
 }
 
 .footer-right {
+    margin-top: 5rem;
     display: flex;
-    flex-wrap: wrap; /* Allows wrapping of columns */
+    flex-wrap: wrap;
     justify-content: space-between;
-    flex-grow: 1; /* Ensures the right section takes available space */
+    flex-grow: 1;
 }
 
 .footer-column {
-    width: 200px; /* Adjust width as needed */
+    width: 150px; /* Adjust width as needed */
     margin-bottom: 20px; /* Space between rows when wrapped */
-    color: #FFFFFFB2;
     font-size: 16px;
     font-weight: 400;
 
@@ -53,22 +55,27 @@
 .footer-column h3 {
     font-size: 18px;
     margin-bottom: 10px;
-    color: #FFFFFFB2;
+    color: white;
+    margin-bottom: 2rem;
 }
 
 .footer-column ul {
     list-style: none;
     padding: 0;
+    color:"red";
 }
 
 .footer-column ul li {
     margin-bottom: 10px;
+    
 }
 
+
 .footer-column ul li a {
-    color: #ffffff;
+    color: #DCDCDCCC;
     text-decoration: none;
     font-size: 14px;
+    
 }
 
 .footer-bottom {
@@ -82,19 +89,27 @@
     list-style: none;
     padding: 0;
     margin-bottom: 10px;
+    color: #FFFFFFB2;
+    font-size: 18px;
+
+
 }
 
 .footer-bottom ul li {
     display: inline;
     margin-right: 20px;
+    color: #FFFFFFB2;
+    margin: 0 2rem;
+
 }
 
 .footer-bottom ul li a {
-    color: #ffffff;
+    color: #FFFFFFB2;
     text-decoration: none;
-    font-size: 12px;
+    font-size: 16px;
 }
 
 .footer-bottom p {
-    font-size: 12px;
+    font-size: 16px;
+    color: #FFFFFFB2;
 }

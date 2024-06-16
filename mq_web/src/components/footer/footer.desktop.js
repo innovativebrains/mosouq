@@ -1,55 +1,63 @@
 import React from 'react';
 import './footer.desktop.css';
 
+import { FaFacebookF, FaXTwitter  } from "react-icons/fa6";
+
+
 const Footer = () => {
     return (
         <footer className="footer">
-            <div className="footer-content" style={{marginLeft:"2rem"}}>
+            <div className="footer-content" style={{ marginLeft: "2rem" }}>
                 <div className="footer-left">
-                    <img src="/footer-logo.png" />
-                    <p className='mt-3'>
+                    <img src="/footer-logo.png" style={{ width: "195px", height: "56px" }} />
+
+                    <div className='mt-5' style={{ textAlign: "justify", fontSize: "16px", color: "#DCDCDCCC" }}>
                         Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat
                         duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.
-                    </p>
+                    </div>
+
                     <div className="footer-social-icons mt-4">
-                        <a href="#"><i className="fab fa-twitter"></i></a>
-                        <a href="#"><i className="fab fa-facebook-f"></i></a>
+                        <a href="#"> <FaXTwitter /> </a>
+                        <a href="#"><FaFacebookF />
+                        </a>
                         <a href="#"><i className="fab fa-instagram"></i></a>
                     </div>
                 </div>
 
-                <div className="footer-right" style={{marginLeft:"5rem", color:'FFFFFFB2'}}>
+                <div className="footer-right" style={{ marginLeft: "20rem", color: 'FFFFFFB2', marginRight: "8rem" }}>
                     <div className="footer-column">
                         <h3>About</h3>
-                        <ul>
-                            <li><a href="#">About Us</a></li>
-                            <li><a href="#">Jobs</a></li>
-                            <li><a href="#">Contact</a></li>
-                            <li><a href="#">Blog</a></li>
-                            <li><a href="#">How Trustpilot works</a></li>
-                            <li><a href="#">Press</a></li>
-                            <li><a href="#">Investor Relations</a></li>
-                        </ul>
+                        <div>
+                            <ul>
+                                <li><a href="/about">About Us</a></li>
+                                <li><a href="/error">Jobs</a></li>
+                                <li><a href="/error">Contact</a></li>
+                                <li><a href="/error">Blog</a></li>
+                                <li><a href="/error">How Trustpilot works</a></li>
+                                <li><a href="/error">Press</a></li>
+                                <li><a href="/error">Investor Relations</a></li>
+                            </ul>
+                        </div>
+
                     </div>
                     <div className="footer-column">
                         <h3>Community</h3>
                         <ul>
-                            <li><a href="#">Trust in reviews</a></li>
-                            <li><a href="#">Login</a></li>
-                            <li><a href="#">Help Center</a></li>
-                            <li><a href="#">Log in</a></li>
-                            <li><a href="#">Sign up</a></li>
-                            <li><a href="#">Chrome App</a></li>
+                            <li><a href="/error">Trust in reviews</a></li>
+                            <li><a href="/login">Login</a></li>
+                            <li><a href="/error">Help Center</a></li>
+                            <li><a href="sign-up">Sign up</a></li>
+                            <li><a href="/error">Chrome App</a></li>
                         </ul>
                     </div>
                     <div className="footer-column">
                         <h3>Businesses</h3>
                         <ul>
-                            <li><a href="#">Mosouq Business</a></li>
-                            <li><a href="#">Products</a></li>
-                            <li><a href="#">Plans & Pricing</a></li>
-                            <li><a href="#">Business Login</a></li>
-                            <li><a href="#">Blog for Business</a></li>
+                            <li><a href="/business-signup">Mosouq Business</a></li>
+                            <li><a href="/error">Products</a></li>
+                            <li><a href="/error">Plans & Pricing</a></li>
+                            <li><a href="/error">Business Login</a></li>
+                            <li><a href="/error">Blog for Business</a></li>
                         </ul>
                     </div>
                 </div>

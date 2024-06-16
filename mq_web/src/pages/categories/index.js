@@ -104,7 +104,8 @@ const Category = () => {
   };
 
   return (
-    <div style={{ overflow: "hidden" }}>
+    <div style={{ overflow: "hidden", marginBottom:'7rem' }}>
+      
       <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', marginTop: "7rem" }}>
         <div style={{ fontWeight: "700", fontSize: "62px" }}>Categories</div>
         <p style={{ color: "#686868", fontSize: "24px", fontWeight: '400' }}>
@@ -122,6 +123,7 @@ const Category = () => {
             position: "relative",
             marginTop: "2rem",
             width: "983px", // Adjusted to maxWidth for responsiveness
+            marginBottom:'5rem'
           }}
         >
           <AiOutlineSearch

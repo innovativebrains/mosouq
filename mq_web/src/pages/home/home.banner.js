@@ -32,7 +32,7 @@ const HomeBanner = () => {
 
                 <Col lg={7}>
                     <div>
-                        <img src="/banner.jpeg" alt="Outer" style={{ width: '700px', height:'550px', marginTop:'5rem', marginLeft:"9rem" }} />
+                        <img src="/banner.jpg" alt="Outer" style={{ width: '700px', height:'550px', marginTop:'5rem', marginLeft:"9rem" }} />
                     </div>
                 </Col>
             </Row>

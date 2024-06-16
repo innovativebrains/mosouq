@@ -19,6 +19,8 @@ import BlogDetails from "../pages/blog/blogdetails";
 
 import Deals from "../pages/deals";
 
+import Business from "../pages/top-business/index"
+
 
 // Bsuiness module Pages 
 
@@ -53,6 +55,8 @@ const routes = [
   { path: "/blog-detail", element: <BlogDetails />, exact: "true", type: "public" },
 
   { path: "/deals", element: <Deals />, exact: "true", type: "public" },
+
+  { path: "/business", element: <Business />, exact: "true", type: "public" },
 
   // ------------------ Business MOdule PAges
   { path: "/contactus", element: <ContactUs />, exact: "true", type: "public" },

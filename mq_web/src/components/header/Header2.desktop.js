@@ -15,7 +15,6 @@ const Header = () => {
             <img src="/mosouq-logo.png" alt="MOSOUQ" style={{height:"55px", width:"191px"}} />
           </div>
 
-          <div>test</div>
           <nav className="nav-links">
             <Link to="/">
               Home
@@ -27,7 +26,7 @@ const Header = () => {
             <Link to='/about'>
               About
             </Link>
-            <Link to="blog">
+            <Link to="/error">
               Blogs
             </Link>
             <Link to="login">

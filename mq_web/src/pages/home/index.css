@@ -215,7 +215,7 @@
 
 
 .image {
-  width: 100%;
+  width: 90%;
   height: auto;
 }
 
@@ -226,6 +226,7 @@
   transform: translateX(-50%);
   color: white;
   padding: 10px;
+  padding-bottom: 3rem;
   border-radius: 0 0 10px 10px; /* Optional: Rounds the bottom corners */
   text-align: left;
   width: 100%;
