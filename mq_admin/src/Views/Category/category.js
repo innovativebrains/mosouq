@@ -1,73 +1,40 @@
-import React, { useRef, useState, useEffect, useMemo } from "react";
-
+import React, { useRef, useState, useEffect } from "react";
 import { toast } from "react-toastify";
-
-import { POST, GET, DELETE, GETID, PATCH } from '../../apicontroller/ApiController'
-
-import { useTable, useFilters, useGlobalFilter } from "react-table";
-
-import {
-    InputGroup,
-    FormControl,
-    Form,
-    Card,
-    Row,
-    Col, Table, Button, Modal, Breadcrumb
-} from "react-bootstrap";
-
-import { AiFillDelete } from 'react-icons/ai';
-import { BsFillPencilFill } from 'react-icons/bs';
-
-import "./listing.css"
-
-import { FaTshirt } from "react-icons/fa";
-
-import { Auth } from "../../context/Auth.Context";
+import { POST, GET } from '../../apicontroller/ApiController';
+import { InputGroup, FormControl, Form, Card, Row, Col, Table, Button, Breadcrumb } from "react-bootstrap";
 
 const Category = () => {
 
-    const [image, setImage] = useState();
-    const resetFileInput = () => {
-        setImage(null);
-    };
-
-
+    const [image, setImage] = useState(null);
     const nameRef = useRef();
-
-    const etitleRef = useRef();
-
     const [categories, setCategories] = useState([]);
 
+console.log(categories);
     const submit = async (event) => {
         event.preventDefault();
-    
-        const formData = new FormData();
-        formData.append("name", nameRef.current.value);
-    
-        if (image) {
-            formData.append("category_image", image); // Ensure 'image' state is correctly set
-            resetFileInput(); // Reset file input after appending image
-        }
-    
+
         if (!nameRef.current.value) {
             toast.error('Category Name field is required.', {
-                // Use custom class for toast container
                 className: 'custom-toast-container',
-                // Use custom class for toast message
                 bodyClassName: 'custom-toast-message'
             });
             return; // Prevent form submission
         }
-    
-        // Use async/await for cleaner code
+
+        const formData = new FormData();
+        formData.append("name", nameRef.current.value);
+
+        if (image) {
+            formData.append("category_image", image);
+        }
+
         try {
             const res = await POST("category/add-category", formData);
-    
             if (res.error === false) {
                 toast("Added Done");
                 nameRef.current.value = '';
-    
-                // Fetch updated categories after adding a new category
+                setImage(null); // Reset image state
+
                 const updatedCategories = await fetchData();
                 setCategories(updatedCategories);
             } else {
@@ -78,78 +45,26 @@ const Category = () => {
             toast.error('Failed to add category. Please try again.');
         }
     };
-    
-    
 
+    const handleFileChange = (e) => {
+        const file = e.target.files[0];
+        setImage(file);
+        console.log("Selected image:", file);
+    };
 
-
-    // const [show, setShow] = useState(false);
-    // const handleClose = () => setShow(false);
-    // const handleShow = () => setShow(true);
-
-    // const [supercategoryid, setSuperCategoryId] = useState({});
-
-    // //Edit FUNCTION
-    // const edit = async (event, id) => {
-
-    //     GETID("supercategory", id, "").then((result) => {
-    //         setSuperCategoryId(result[0]);
-    //     });
-    //     handleShow();
-    // };
-
-    // // Send edited data to the databse finction
-    // const eSubmit = (event, id) => {
-    //     event.preventDefault();
-
-    //     const formData = new FormData();
-    //     formData.append("title", etitleRef.current.value);
-    //     formData.append("header", eheaderRef.current.checked ? '1' : '0');
-    //     formData.append("top", etopRef.current.checked ? '1' : '0');
-
-    //     if (image) { formData.append("supercategory", image) };
-
-    //     PATCH("supercategory/update", id, formData).then((res) => {
-    //         fetchData();
-    //         toast("Super Category Updated Successfully");
-    //         handleClose();
-    //         setImage(null);
-    //     });
-    // };
     const fetchData = async () => {
         GET("category/get-categories").then((result) => {
             setCategories(result);
         });
     };
 
-
-    // const [delShow, setDelShow] = useState(false);
-    // const handleCloseDel = () => setDelShow(false);
-    // const handleShowDel = () => setDelShow(true);
-
-    // const delView = async (event, id) => {
-    //     GETID("supercategory", id, '').then((result) => {
-    //         setSuperCategoryId(result[0]);
-    //     });
-    //     handleShowDel();
-    // };
-
-    // const remove = async (event, id) => {
-    //     DELETE("supercategory/delete", id, "").then((result) => {
-    //         fetchData();
-    //         toast("Your Category is deleted");
-    //     });
-    //     handleCloseDel();
-    // };
-
     useEffect(() => {
         fetchData();
-    }, [])
+    }, []);
 
 
     return (
         <div>
-
             <Col sm={12} className="mt-3">
                 <Breadcrumb>
                     <Breadcrumb.Item href="/dashboard"> Dashboard </Breadcrumb.Item>
@@ -163,7 +78,6 @@ const Category = () => {
                         <Card.Body>
                             <Form>
                                 <div className="row">
-
                                     <Col md={12}>
                                         <Form.Label htmlFor="basic-url"> Category Name </Form.Label>
                                         <InputGroup className="mb-3" required >
@@ -174,7 +88,7 @@ const Category = () => {
                                     <Col md={12}>
                                         <Form.Label htmlFor="basic-url"> Image </Form.Label>
                                         <InputGroup className="mb-3">
-                                         <FormControl type="file" onChange={(e) => setImage(e.target.files[0])} />
+                                            <FormControl type="file" onChange={handleFileChange} />
                                         </InputGroup>
                                     </Col>
 
@@ -185,7 +99,6 @@ const Category = () => {
                                             </Button>
                                         </Form.Group>
                                     </Col>
-
                                 </div>
                             </Form>
                         </Card.Body>
@@ -199,18 +112,18 @@ const Category = () => {
                                 <thead>
                                     <tr>
                                         <th>Category</th>
+                                        <th> Image </th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     {categories.map((category) => (
-
-                                        <tr>
+                                        <tr key={category._id}>
+                                            <td>{category.name}</td>
                                             <td>
-                                                {category.name}
+                                                <img src={`${process.env.REACT_APP_AWS_URL}category_image/${category.category_image}`} />
                                             </td>
                                         </tr>
                                     ))}
-
                                 </tbody>
                             </Table>
                         </div>
@@ -218,7 +131,7 @@ const Category = () => {
                 </Col>
             </Row>
         </div>
-    )
+    );
 }
 
-export default Category
+export default Category;

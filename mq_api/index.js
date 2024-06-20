@@ -9,7 +9,7 @@ const cors = require('cors');
 const app = express();
 const router = express.Router({ strict: true });
 
-var corsOptions = { origin: ['http://localhost:3001', 'http://localhost:3000' ] }
+var corsOptions = { origin: ['http://localhost:3000', "" ] }
 
 app.use(cors(corsOptions));
 
