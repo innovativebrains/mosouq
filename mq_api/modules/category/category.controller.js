@@ -1,13 +1,8 @@
 const Category = require("./category.model");
-const mongoose = require("mongoose");
 
 async function createCategory(req, res) {
   const { name } = req.body;
   const category_image = req.file ? req.file.location : null;
-
-  console.log("Request Body:", req.body);
-  console.log("Uploaded File:", req.file);
-
   try {
       const categoryData = { name, category_image };
       const savedCategory = await Category.create(categoryData);
