@@ -8,7 +8,7 @@ const subcategorySchema = new Schema(
 
     category: {type: String},
     sub_name: { type: String },
-    category_image: { type: String },
+    subcategory_image: { type: String },
 
 
   },

@@ -28,92 +28,47 @@ const SubCategory = () => {
     const sub_nameRef = useRef();
 
 
-    // Submit Functions
     const submit = async (event) => {
         event.preventDefault();
 
-        const formData = new FormData();
-        formData.append("category", categoryRef.current.value);
-        formData.append("sub_name", sub_nameRef.current.value);
-
-        if (image) formData.append("subcategory", image);
-
         if (!sub_nameRef.current.value) {
             toast.error('Category Name field is required.', {
-                // Use custom class for toast container
                 className: 'custom-toast-container',
-                // Use custom class for toast message
                 bodyClassName: 'custom-toast-message'
             });
-            return; // Prevent form submission
+            return;
         }
 
-        POST("subcategory/add-subcategory", formData).then((res) => {
+        const formData = new FormData();
+        formData.append("sub_name", sub_nameRef.current.value);
+        formData.append("category", categoryRef.current.value);
+
+        if (image) {
+            formData.append("subcategory_image", image);
+        }
+
+        try {
+            const res = await POST("subcategory/add-subcategory", formData);
             if (!res.error) {
-                toast("Added Done")
+                toast("Added Done");
 
-                categoryRef.current.value = '';
-                sub_nameRef.current.value = '';
-
-                console.log("oiuou",formData);
                 fetchData();
             } else {
-                toast.error(res.sqlMessage)
+                toast.error(res.sqlMessage);
             }
-        });
-
-        setImage(null);
+        } catch (error) {
+            console.error('Error adding category:', error);
+            toast.error('Failed to add category. Please try again.');
+        }
     };
 
-    // Model Handle close and open
-    const [show, setShow] = useState(false);
-    const handleClose = () => setShow(false);
-    const handleShow = () => setShow(true);
+    const handleFileChange = (e) => {
+        const file = e.target.files[0];
+        setImage(file);
+        console.log("Selected image:", file);
+    };
 
     const [category, setCategoryId] = useState([]);
-
-    // //Edit FUNCTION
-    // const edit = async (event, id) => {
-
-    //     GETID("category/edit", id, "").then((result) => {
-    //         setCategoryId(result);
-    //     });
-    //     handleShow();
-    //     setCategoryId(null);
-    // };
-
-    // // Edit Ref Submit Values
-    // const esupercategoryRef = useRef();
-    // const etitleRef = useRef();
-    // const epriceRef = useRef();
-    // const efeatureRef = useRef();
-    // const eupcomingRef = useRef();
-    // const ecurrencyRef = useRef();
-    // const eserialnoRef = useRef();
-    // const ediscountRef = useRef();
-
-    // const eSubmit = (event, id) => {
-    //     event.preventDefault();
-    //     const formData = new FormData();
-    //     formData.append("supercategory", esupercategoryRef.current.value);
-    //     formData.append("title", etitleRef.current.value);
-    //     formData.append("price", epriceRef.current.value);
-    //     formData.append("feature", efeatureRef.current.checked ? '1' : '0');
-    //     formData.append("upcoming", eupcomingRef.current.checked ? '1' : '0');
-    //     formData.append("serialno", eserialnoRef.current.value);
-    //     formData.append("discount", ediscountRef.current.value);
-    //     formData.append("currency", ecurrencyRef.current.value);
-
-
-    //     if (image) formData.append("category", image);
-
-    //     PUT("category/update", id, formData).then((res) => {
-
-    //         fetchData();
-    //         toast("Product Updated Successfully");
-    //         handleClose();
-    //     });
-    // };
 
     // ---------------- Get Data ------------------------
     const [categories, setCategories] = useState([]);
@@ -165,13 +120,13 @@ const SubCategory = () => {
             </Col>
 
             <Row>
-                <Col sm={12}>
+                <Col sm={4}>
                     <Card className="">
                         <Card.Body>
                             <Form>
                                 <div className="row">
 
-                                    <Col md={4}>
+                                    <Col md={12}>
                                         <Form.Group className="">
                                             <Form.Label> Category </Form.Label>
                                             <Form.Control className="form-control" as="select" ref={categoryRef}>
@@ -183,17 +138,17 @@ const SubCategory = () => {
                                         </Form.Group>
                                     </Col>
 
-                                    <Col md={4}>
+                                    <Col md={12}>
                                         <Form.Group className="">
                                             <Form.Label> Sub Category </Form.Label>
                                             <Form.Control ref={sub_nameRef} type="text" placeholder="Product" />
                                         </Form.Group>
                                     </Col>
 
-                                    <Col md={3}>
+                                    <Col md={12}>
                                         <Form.Group className="">
                                             <Form.Label> Image </Form.Label>
-                                            <Form.Control type="file" onChange={(e) => setImage(e.target.files[0])} />
+                                            <FormControl type="file" onChange={handleFileChange} />
                                         </Form.Group>
                                     </Col>
 
@@ -211,14 +166,12 @@ const SubCategory = () => {
                     </Card>
                 </Col>
 
-                <Col sm={12} className="mt-3">
+                <Col sm={8} className="">
                     <div className="card">
                         <div className="card-body">
                             <Table striped bordered hover>
                                 <thead>
                                     <tr>
-                                        <th>Sr #</th>
-                                        <th>Category</th>
                                         <th>Sub Category</th>
                                         <th>Image</th>
                                     </tr>
@@ -229,6 +182,10 @@ const SubCategory = () => {
                                         <tr>
                                             <td>
                                                 {subcategory.sub_name}
+                                            </td>
+
+                                            <td>
+                                                <img src={`${subcategory.subcategory_image}`} style={{width:"50px", height:"50px"}} />
                                             </td>
                                         </tr>
                                     ))}

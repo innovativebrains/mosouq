@@ -6,10 +6,10 @@ import { InputGroup, FormControl, Form, Card, Row, Col, Table, Button, Breadcrum
 const Category = () => {
 
     const [image, setImage] = useState(null);
+
     const nameRef = useRef();
     const [categories, setCategories] = useState([]);
 
-console.log(categories);
     const submit = async (event) => {
         event.preventDefault();
 
@@ -30,16 +30,15 @@ console.log(categories);
 
         try {
             const res = await POST("category/add-category", formData);
-            if (res.error === false) {
+            if (!res.error) {
                 toast("Added Done");
-                nameRef.current.value = '';
-                setImage(null); // Reset image state
 
-                const updatedCategories = await fetchData();
-                setCategories(updatedCategories);
+                fetchData();
+
             } else {
                 toast.error(res.sqlMessage);
             }
+            
         } catch (error) {
             console.error('Error adding category:', error);
             toast.error('Failed to add category. Please try again.');
@@ -120,7 +119,7 @@ console.log(categories);
                                         <tr key={category._id}>
                                             <td>{category.name}</td>
                                             <td>
-                                                <img src={`${process.env.REACT_APP_AWS_URL}category_image/${category.category_image}`} />
+                                                <img src={`${category.category_image}`} style={{width:"50px", height:"50px"}} />
                                             </td>
                                         </tr>
                                     ))}

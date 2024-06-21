@@ -16,18 +16,17 @@ const s3 = new S3Client({
 const upload = multer({
     storage: multerS3({
         s3: s3,
-        bucket: awsConfig.bucketName,
+        bucket: awsConfig.bucketName, // Ensure this is correctly set
         key: function (req, file, cb) {
             cb(null, `subcategory_image/${Date.now().toString()}_${file.originalname}`);
         },
     }),
 });
 
-const subCategoryController = require('./category.controller');
+const subCategoryController = require('./subcategory.controller');
 
 router.get('/get-subcategories', subCategoryController.getSubCategories);
 
 router.post('/add-subcategory', upload.single('subcategory_image'), subCategoryController.createSubCategory);
-
 
 module.exports = router;
