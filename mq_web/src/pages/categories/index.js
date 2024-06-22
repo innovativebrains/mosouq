@@ -1,111 +1,44 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './index.css';
 import { AiOutlineSearch } from "react-icons/ai";
 import { Row, Col, Card } from "react-bootstrap";
 import { CiBank } from "react-icons/ci";
 import { BsChevronDown } from "react-icons/bs";
 
-const categories = [
-  {
-    id: 1,
-    name: "Restaurants & Bars",
-    subcategories: [
-      "African & Pacific Cuisine",
-      "Bars & Cafes",
-      "Chinese & Korean Cuisine",
-      "European Cuisine",
-      "General Restaurants",
-      "Japanese Cuisine",
-      "Mediterranean Cuisine",
-      "Middle Eastern Cuisine",
-      "North & South American",
-      "Southeast Asian Cuisine",
-      "Takeaways"
-    ]
-  },
-  {
-    id: 2,
-    name: "Category 1",
-    subcategories: [
-      "Subcategory 1",
-      "Subcategory 2",
-      "Subcategory 3"
-    ]
-  },
-  {
-    id: 3,
-    name: "Category 2",
-    subcategories: [
-      "Subcategory A",
-      "Subcategory B",
-      "Subcategory C"
-    ]
-  },
-  {
-    id: 4,
-    name: "Category 2",
-    subcategories: [
-      "Subcategory A",
-      "Subcategory B",
-      "Subcategory C"
-    ]
-  },
-
-  {
-    id: 4,
-    name: "Category 2",
-    subcategories: [
-      "Subcategory A",
-      "Subcategory B",
-      "Subcategory C"
-    ]
-  },
-
-  {
-    id: 4,
-    name: "Category 2",
-    subcategories: [
-      "Subcategory A",
-      "Subcategory B",
-      "Subcategory C"
-    ]
-  },
-
-  {
-    id: 4,
-    name: "Category 2",
-    subcategories: [
-      "Subcategory A",
-      "Subcategory B",
-      "Subcategory C"
-    ]
-  },
-
-  {
-    id: 4,
-    name: "Category 2",
-    subcategories: [
-      "Subcategory A",
-      "Subcategory B",
-      "Subcategory C"
-    ]
-  }
-];
+import { GET } from '../../apicontrollers/apiController';
 
 const Category = () => {
+
+  const [categories, setCategories] = useState([]);
+
+  const [subcategories, setSubCategories] = useState([]);
+
+  useEffect(() => {
+    GET("category/get-categories").then((result) => {
+      setCategories(result);
+      
+    });
+
+    GET("subcategory/get-subcategories").then((result) => {
+      setSubCategories(result);
+      
+    });
+    
+  }, []);
+
   const [expandedIndex, setExpandedIndex] = useState(-1);
 
   const toggleExpand = (index) => {
     if (expandedIndex === index) {
-      setExpandedIndex(-1); // Collapse the currently expanded card if clicked again
+      setExpandedIndex(-1);
     } else {
-      setExpandedIndex(index); // Expand the clicked card
+      setExpandedIndex(index);
     }
   };
 
   return (
-    <div style={{ overflow: "hidden", marginBottom:'7rem' }}>
-      
+    <div style={{ overflow: "hidden", marginBottom: '7rem' }}>
+
       <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', marginTop: "7rem" }}>
         <div style={{ fontWeight: "700", fontSize: "62px" }}>Categories</div>
         <p style={{ color: "#686868", fontSize: "24px", fontWeight: '400' }}>
@@ -123,7 +56,7 @@ const Category = () => {
             position: "relative",
             marginTop: "2rem",
             width: "983px", // Adjusted to maxWidth for responsiveness
-            marginBottom:'5rem'
+            marginBottom: '5rem'
           }}
         >
           <AiOutlineSearch
@@ -157,7 +90,7 @@ const Category = () => {
               <Card.Body className="d-flex align-items-center">
                 <div className='d-flex' style={{ backgroundColor: "#FAFAFA" }} onClick={() => toggleExpand(index)} >
                   <div className="me-3">
-                    <CiBank />
+                    <img src={category.category_image} style={{ width: '50px', height: "50px", borderRadius: "50%" }} />
                   </div>
                   <div>{category.name}</div>
                   <BsChevronDown className="ms-2" style={{ cursor: "pointer", marginTop: "0.5rem" }} />

@@ -6,7 +6,11 @@ const subcategorySchema = new Schema(
   {
     // Property Type Data
 
-    category: {type: String},
+    categoryId: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'Category'
+    },
+
     sub_name: { type: String },
     subcategory_image: { type: String },
 

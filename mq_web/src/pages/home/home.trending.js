@@ -1,14 +1,17 @@
 import React from "react";
 
-import { Container, Row, Col, Card, Button } from "react-bootstrap";
+import { Row, Col, Card, Button } from "react-bootstrap";
 
 import { Link } from "react-router-dom";
 
 import ReactStars from "react-stars";
 
+import "./responsive.css"
+
 const HomeTrending = () => {
   return (
     <div style={{ marginTop: "7rem", overflow: "hidden" }}>
+
       <Row className="justify-content-between mt-5" style={{ marginLeft: '3rem' }}>
         <Col sm="6" className="">
           <h2>
@@ -43,25 +46,25 @@ const HomeTrending = () => {
         </Col>
       </Row>
 
-      <div style={{marginLeft:"4rem", marginRight:"4rem"}}>
+      <div className="trend-cont">
         <Row>
           {[1, 2, 3, 4].map((category, index) => (
-            <Col key={index} md="3" className="mb-4">
-              <Card style={{ width: "99%", marginRight: "2rem" }}>
+            <Col key={index} xs={12} sm={6} md={4} lg={3} className="mb-4">
+              <Card className="h-100">
                 <img
                   src="banner1.jpg"
+                  className="card-img"
                   style={{ objectFit: "contain", padding: "10px" }}
                   alt="Banner"
                 />
-                <Card.Body>
+                <Card.Body className="d-flex flex-column">
                   <Card.Title>
                     <Row>
                       <Col>
-                        <div style={{ color: "#404EED", fontSize: "12px" }}>
+                        <div className="card-title-text" style={{ color: "#404EED", fontSize: "12px" }}>
                           Restaurants & Bars
                         </div>
                       </Col>
-
                       <Col className="d-flex justify-content-center align-items-center">
                         <div
                           style={{
@@ -69,34 +72,32 @@ const HomeTrending = () => {
                             backgroundColor: "#B9DCFF99",
                             padding: "10px",
                             borderRadius: "5px",
-                            height: "22px", // Adjusted minimum height for the container
+                            height: "22px",
                             display: "flex",
-                            alignItems: "center", // Center items vertically
+                            alignItems: "center",
                           }}
                         >
                           <div className="d-flex align-items-center">
                             <ReactStars
-                              count={1} // Static number of stars
-                              value={1} // Static rating value
-                              size={20} // Size of the stars
-                              edit={false} // Disable editing
+                              count={1}
+                              value={1}
+                              size={20}
+                              edit={false}
                             />
-                            <div style={{ fontSize: "12px", marginLeft: "10px" }}>
+                            <div className="rating-text" style={{ fontSize: "12px", marginLeft: "10px" }}>
                               4.3 (200+)
                             </div>
                           </div>
                         </div>
                       </Col>
-
-
                     </Row>
                   </Card.Title>
                   <Card.Text>
-                    <div style={{ fontSize: "18px", fontWeight: "600" }}>
+                    <div className="card-text-title" style={{ fontSize: "18px", fontWeight: "600" }}>
                       Fish Bleach Taverna
                     </div>
-
                     <div
+                      className="card-text-subtitle"
                       style={{
                         fontWeight: "400",
                         fontSize: "12px",
@@ -106,7 +107,7 @@ const HomeTrending = () => {
                       Dubai Marina (Marisa Dubai)
                     </div>
                   </Card.Text>
-                  <Button style={{ width: "100%" }} variant="primary">
+                  <Button className="mt-auto" style={{ width: "100%" }} variant="primary">
                     Request Consultation
                   </Button>
                 </Card.Body>
@@ -115,6 +116,8 @@ const HomeTrending = () => {
           ))}
         </Row>
       </div>
+
+
     </div>
   );
 };

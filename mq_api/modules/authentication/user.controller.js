@@ -8,32 +8,33 @@ const generateToken = _id => {
 
 const signupUser = async (req, res) => {
   try {
-    const { email, password, name, company, phone, role, country, terms } = req.body
+    const { email, password, name, company, phone, role, country, terms } = req.body;
 
     // Check if email already exists
-    const exists = await Auth.findOne({ email })
-    if (exists) {
-      throw Error('Email is already in use')
-    }
+    // const exists = await Auth.findOne({ email }).lean();
+    // if (exists) {
+    //   throw new Error('Email is already in use');
+    // }
 
     // Hash password
-    const salt = await bcrypt.genSalt()
-    const hash = await bcrypt.hash(password, salt)
+    const salt = await bcrypt.genSalt();
+    const hash = await bcrypt.hash(password, salt);
 
     // Create new user
-    const user = await Auth.create({ email, password: hash, name, company, phone, role, country, terms })
-    
+    const user = await Auth.create({ email, password: hash, name, company, phone, role, country, terms });
+
     // Generate token
-    const token = generateToken(user.id)
+    const token = generateToken(user.id);
 
     // Send response
-    res.status(200).json({ email, token })
+    res.status(200).json({ email, token });
 
   } catch (error) {
     // Error Handling
-    res.status(400).json({ error: error.message })
+    console.error('Error during user signup:', error);
+    res.status(400).json({ error: error.message });
   }
-}
+};
 
 
 const loginAuth = async (req, res) => {

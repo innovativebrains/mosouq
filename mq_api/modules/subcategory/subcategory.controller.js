@@ -19,11 +19,15 @@ async function createSubCategory(req, res) {
 
 const getSubCategories = async (req, res) => {
   try {
-      const subcategories = await SubCategory.find();
-      res.status(200).json(subcategories);
-      console.log(subcategories);
+ 
+    const subcategories = await SubCategory.find().populate('categoryId');
+    res.status(200).json(subcategories);
+    console.log(subcategories);
+ 
   } catch (error) {
-      res.status(404).json({ message: error.message });
+ 
+    res.status(404).json({ message: error.message });
+ 
   }
 };
 
