@@ -50,28 +50,28 @@ const SideBar = () => {
         </li>
 
         <li className={`${active == 1 ? "active-list" : ""}`} onClick={() => setActive(1)}>
-          <Link to="/about" className="menu-item" >
+          <Link to="/companies" className="menu-item" >
             <span className='d-flex'>
               <AiFillDashboard style={{ color: 'white', fontSize: '20px' }} />
-              <p style={{ fontSize: '15px' }}> About </p>
+              <p style={{ fontSize: '15px' }}> Trusted Companies </p>
             </span>
           </Link>
         </li>
 
         <li className={`${active == 1 ? "active-list" : ""}`} onClick={() => setActive(1)}>
-          <Link to="/blog" className="menu-item" >
+          <Link to="/businesses" className="menu-item" >
             <span className='d-flex'>
               <AiFillDashboard style={{ color: 'white', fontSize: '20px' }} />
-              <p style={{ fontSize: '15px' }}> Blog </p>
+              <p style={{ fontSize: '15px' }}> Trending Businesses </p>
             </span>
           </Link>
         </li>
 
         <li className={`${active == 1 ? "active-list" : ""}`} onClick={() => setActive(1)}>
-          <Link to="/reviews" className="menu-item" >
+          <Link to="/deals" className="menu-item" >
             <span className='d-flex'>
               <AiFillDashboard style={{ color: 'white', fontSize: '20px' }} />
-              <p style={{ fontSize: '15px' }}> Reviews </p>
+              <p style={{ fontSize: '15px' }}> Deals </p>
             </span>
           </Link>
         </li>

@@ -114,7 +114,7 @@ const Signin = () => {
               Sign in
             </Button>
           </Form>
-          <p style={{
+          {/* <p style={{
               fontSize: "14px", float: "right",
               fontFamily: "serif", fontWeight: "normal", marginTop: "10px"
               }}>First Time?
@@ -127,7 +127,7 @@ const Signin = () => {
               >
                 Create Account
               </Link>
-            </p>
+            </p> */}
         </Card.Body>
       </Card>
     </div>

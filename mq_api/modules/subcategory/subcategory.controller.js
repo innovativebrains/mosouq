@@ -15,7 +15,7 @@ async function createSubCategory(req, res) {
       res.status(500).json({ error: "An internal server error occurred" });
   }
 }
- 
+  
 
 const getSubCategories = async (req, res) => {
   try {

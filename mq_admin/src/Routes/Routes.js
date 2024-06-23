@@ -10,6 +10,12 @@ import About from "../Views/about"
 
 import Blog from "../Views/blog"
 
+import Companies from "../Views/companies"
+
+import TrendingBusiness from "../Views/trending"
+
+import Deals from "../Views/deals"
+
 const routes =[  
     
     {path:'/sign-up', element:<Signup />, exact:'true', type:'public' },
@@ -24,6 +30,12 @@ const routes =[
     {path:'/about', element:<About />, exact:'true', type:'private' },
 
     {path:'/blog', element:<Blog />, exact:'true', type:'private' },
+
+    {path:'/companies', element:<Companies />, exact:'true', type:'private' },
+
+    {path:'/businesses', element:<TrendingBusiness />, exact:'true', type:'private' },
+
+    {path:'/deals', element:<Deals />, exact:'true', type:'private' },
 
 ]
 
