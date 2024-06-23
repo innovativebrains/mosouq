@@ -54,7 +54,7 @@ const Companies = () => {
     };
 
     const fetchData = async () => {
-        GET("company/get-companies").then((result) => {
+        GET("business/get-business").then((result) => {
             setCompanies(result);
         });
     };
@@ -140,16 +140,16 @@ const Companies = () => {
                             <Table striped bordered hover>
                                 <thead>
                                     <tr>
-                                        <th> Company Link </th>
+                                        <th> Business Name </th>
                                         <th> Image </th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     {companies.map((company) => (
                                         <tr key={company._id}>
-                                            <td>{company.link}</td>
+                                            <td>{company.name}</td>
                                             <td>
-                                                <img src={`${company.companies_image}`} style={{width:"50px", height:"50px"}} />
+                                                <img src={`${company.business_image}`} style={{width:"50px", height:"50px"}} />
                                             </td>
                                         </tr>
                                     ))}

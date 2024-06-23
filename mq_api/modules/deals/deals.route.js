@@ -20,7 +20,7 @@ const upload = multer({
         s3: s3,
         bucket: awsConfig.bucketName, // Ensure this is correctly set
         key: function (req, file, cb) {
-            cb(null, `business_image/${Date.now().toString()}_${file.originalname}`);
+            cb(null, `deal_image/${Date.now().toString()}_${file.originalname}`);
         },
     }),
 });
@@ -29,6 +29,6 @@ const companyController = require('');
 
 router.get('/get-deals', companyController.getdeals);
 
-router.post('/add-business', upload.single('business_image'), companyController.createBusiness);
+router.post('/add-deal', upload.single('deal_image'), companyController.createDeal);
 
 module.exports = router;

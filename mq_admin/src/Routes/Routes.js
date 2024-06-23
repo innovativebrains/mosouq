@@ -16,6 +16,8 @@ import TrendingBusiness from "../Views/trending"
 
 import Deals from "../Views/deals"
 
+import Dubai from "../Views/dubai/index"
+
 const routes =[  
     
     {path:'/sign-up', element:<Signup />, exact:'true', type:'public' },
@@ -36,6 +38,8 @@ const routes =[
     {path:'/businesses', element:<TrendingBusiness />, exact:'true', type:'private' },
 
     {path:'/deals', element:<Deals />, exact:'true', type:'private' },
+
+    {path:'/dubai', element:<Dubai />, exact:'true', type:'private' },
 
 ]
 

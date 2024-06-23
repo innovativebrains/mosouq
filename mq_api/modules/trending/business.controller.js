@@ -17,11 +17,11 @@ async function createBusiness(req, res) {
 }
 
 
-const getCategories = async (req, res) => {
+const getBusiness = async (req, res) => {
   try {
-      const categories = await Category.find();
-      res.status(200).json(categories);
-      console.log(categories);
+      const business = await Business.find();
+      res.status(200).json(business);
+      console.log(business);
   } catch (error) {
       res.status(404).json({ message: error.message });
   }
@@ -29,5 +29,5 @@ const getCategories = async (req, res) => {
 
 module.exports = {
   createBusiness,
-  getCategories,
+  getBusiness,
 };

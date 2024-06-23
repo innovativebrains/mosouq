@@ -77,10 +77,10 @@ const SideBar = () => {
         </li>
 
         <li className={`${active == 1 ? "active-list" : ""}`} onClick={() => setActive(1)}>
-          <Link to="/users" className="menu-item" >
+          <Link to="/dubai" className="menu-item" >
             <span className='d-flex'>
               <AiFillDashboard style={{ color: 'white', fontSize: '20px' }} />
-              <p style={{ fontSize: '15px' }}> Users </p>
+              <p style={{ fontSize: '15px' }}> Dubai </p>
             </span>
           </Link>
         </li>

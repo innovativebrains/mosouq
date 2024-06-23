@@ -13,9 +13,10 @@
   align-items: center;
   justify-content: space-between;
   max-width: 100%;
-  margin: 0 auto;
   height: 88px;
   padding: 0 2rem;
+  margin-left: 3rem;
+  margin-right: 3rem;
 }
 
 .logo img {

@@ -1,6 +1,6 @@
 const Deals = require("./deals.model");
 
-async function createBusiness(req, res) {
+async function createDeal(req, res) {
   const { name, type, location, description, consultation } = req.body;
   const business_image = req.file ? req.file.location : null;
 
@@ -10,8 +10,8 @@ async function createBusiness(req, res) {
       const savedBusinses = await Deals.create(businessData);
 
       res.status(201).json({
-          message: "Company created successfully",
-          business: savedBusinses,
+          message: "Deal created successfully",
+          deal: savedBusinses,
       });
 
   } catch (error) {
@@ -24,15 +24,15 @@ async function createBusiness(req, res) {
 
 const getdeals = async (req, res) => {
   try {
-      const businesses = await Deals.find();
-      res.status(200).json(businesses);
-      console.log(businesses);
+      const deals = await Deals.find();
+      res.status(200).json(deals);
+      console.log(deals);
   } catch (error) {
       res.status(404).json({ message: error.message });
   }
 };
 
 module.exports = {
-  createBusiness,
+  createDeal,
   getdeals,
 };

@@ -6,7 +6,11 @@ const subCategoryRoute = require("../modules/subcategory/subcategory.route")
 
 const companyRoute = require("../modules/companies/companies.route")
 
-const businessRoute = require("../modules/trending/business.model")
+const businessRoute = require("../modules/trending/business.route")
+
+const dealRoute = require("../modules/dubai/dubai.route")
+
+const dubaiRoute = require("../modules/dubai/dubai.route")
 
 module.exports = function router(app) {
   
@@ -19,5 +23,9 @@ module.exports = function router(app) {
   app.use("/api/company", companyRoute)
 
   app.use("/api/business", businessRoute)
+
+  app.use("/api/deal", dealRoute)
+
+  app.use("/api/dubai", dubaiRoute)
 
 }; 

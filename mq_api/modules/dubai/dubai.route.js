@@ -20,15 +20,15 @@ const upload = multer({
         s3: s3,
         bucket: awsConfig.bucketName, // Ensure this is correctly set
         key: function (req, file, cb) {
-            cb(null, `business_image/${Date.now().toString()}_${file.originalname}`);
+            cb(null, `dubai_image/${Date.now().toString()}_${file.originalname}`);
         },
     }),
 });
 
-const businessController = require('./business.controller');
+const companyController = require('./dubai.controller');
 
-router.get('/get-business', businessController.getBusiness);
+router.get('/get-dubai', companyController.getdubai);
 
-router.post('/add-business', upload.single('business_image'), businessController.createBusiness);
+router.post('/add-dubai', upload.single('dubai_image'), companyController.createDubai);
 
 module.exports = router;
